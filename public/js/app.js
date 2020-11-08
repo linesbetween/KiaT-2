@@ -23,5 +23,21 @@ const uploadFile = (targetImage, arImage) => {
     formData.append("hologram_type", 1);
     formData.append("file_image", targetImage);
     formData.append("file_image_hologram", arImage);
-    request.send(formData);
+    var newMessage = request.send(formData);
+
+
+    // save returned response to server
+    // POST /message
+    $.ajax({
+        method: 'POST',
+        url: 'http://localhost:3000/message',
+        data: newMessage
+    }).then(function(response) {
+        if (response.success) {
+            console.log("message saved");
+            alert("Your message is saved on EchoAR cloud!");
+        } else {
+            alert(response.message);
+        }
+    });
     };
