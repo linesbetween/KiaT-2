@@ -35,11 +35,106 @@
     </div>
   </div>
 
-  <iframe width="100%" height="500" frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyBf1YiRzZDSIygaEGKsRH8_sO41yZX0eUE&location=44.148619,-71.4530062&heading=210&pitch=10&fov=35"
-    allowfullscreen>
-  </iframe>
+  <center>
+    <hr> Walking with Your Diaries and Nature</h1>
+    <div class="map" id="map"></div>
+  </center>
 
+  <!-- add map size -->
+  <style>
+    .map {
+      height: 600px;
+      width: "100%";
+    }
+  </style>
+  <script>
+    var map;
+    var InforObj = [];
+
+    var centerCords = {
+      lat: 44.148619,
+      lng: -71.4530062
+    };
+    var icons = {
+      envelope: {
+        icon: 'https://img.icons8.com/fluent/48/000000/filled-message.png'
+        // To use the icons for free please insert the link somewhere on the page. 
+        // <a href="https://icons8.com/icon/MFd4aKzItnZK/envelope">Envelope icon by Icons8</a>
+      },
+      Memo: {
+        icon: 'https://img.icons8.com/emoji/48/000000/memo-emoji.png'
+        // To use the icons for free please insert the link somewhere on the page. 
+        // < a href="<a href="https://icons8.com/icon/JWpT8cAn8G0V/memo">Memo icon by Icons8</a></a>
+      },
+    };
+
+    var markersOnMap = [
+      {
+        LatLng: [{
+          lat: 44.148619,
+          lng: -71.4530062
+        }],
+        type: "Memo",
+        content: "I will visit this place again next year."
+      },
+      {
+        LatLng: [{
+          lat: 44.1643804,
+          lng: -71.4325573
+        }],
+        type: "Memo",
+        content: "I love hiking."
+      },
+      {
+        LatLng: [{
+          lat: 44.1692993,
+          lng: -71.4721202
+        }],
+        type: "envelope",
+        content: "Feeling Fresh!!!"
+      },
+    ];
+
+    window.onload = function () {
+      initMap();
+    }
+
+    // Create markers.
+
+    function addMarkerInfor() {
+      for (var i = 0; i < markersOnMap.length; i++) {
+        var marker = new google.maps.Marker({
+          position: markersOnMap[i].LatLng[0],
+          icon: icons[markersOnMap[i].type].icon,
+          map: map,
+          title: 'My Thought'
+        });
+        var infowindow = new google.maps.InfoWindow();
+        var content = markersOnMap[i].content
+        google.maps.event.addListener(marker, 'click', (function (marker, content, infowindow) {
+          return function () {
+            infowindow.setContent(content);
+            infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));
+      }
+    }
+
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: centerCords
+      });
+      addMarkerInfor();
+    }
+
+
+  </script>
+
+  <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf1YiRzZDSIygaEGKsRH8_sO41yZX0eUE&callback=initMap">
+    </script>
 
 
   <!-- JS Library Dependencies -->
