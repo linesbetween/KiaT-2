@@ -16,8 +16,10 @@ const uploadFile = (targetImage, arImage) => {
     request.open("POST", API_ENDPOINT, true);
     request.onreadystatechange = () => {
         if (request.readyState === 4 && request.status === 200) {
+            console.log("this is the response" + request.responseText);
             console.log("what's breaking JSON" + request.responseType.toString());
-            newMessage = request.response; // need to store this newMessage as js object
+            newMessage = JSON.parse(request.response); // need to store this newMessage as js object
+            console.log("id? : " + newMessage.id);
     // save returned response to server
     // POST /message
     $.ajax({
