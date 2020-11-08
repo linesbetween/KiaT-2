@@ -7,31 +7,32 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="scripts/semantic-ui-css/semantic.min.css">
   <title>SPA Demo</title>
+  <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf1YiRzZDSIygaEGKsRH8_sO41yZX0eUE&callback=initMap"> </script>
 </head>
 
 <body>
   <div class="ui container">
     <!-- Navigation Menu -->
-    <div class="ui four item inverted orange menu">
+    <div class="ui four item inverted blue menu">
       <div class="header item">
-        <i class="money bill alternate outline icon"></i>
         Home
       </div>
       <a class="item" href="/">
-        Currency Rates
+        Exeplor
       </a>
       <a class="item" href="/exchange">
-        Exchange Rates
+        Upload
       </a>
       <a class="item" href="/historical">
-        Historical Rates
+        About Us
       </a>
 
     </div>
 
+
     <!-- Application Root -->
     <div id="app">
-      <img src="static/dims.png" style="margin-left: auto; margin-right: auto;">
+      <img src="static/dims.png" width="600" style="display:block; margin-left: auto; margin-right: auto;">
     </div>
   </div>
 
@@ -43,8 +44,8 @@
   <!-- add map size -->
   <style>
     .map {
-      height: 600px;
-      width: "100%";
+      height: 400px;
+      width: "600px%";
     }
   </style>
   <script>
@@ -132,18 +133,34 @@
 
   </script>
 
-  <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBf1YiRzZDSIygaEGKsRH8_sO41yZX0eUE&callback=initMap">
-    </script>
+
+   <!-- Application Root -->
+   <div>
+     <h2>Drop your meassage here!</h2>
+   </div>
+   <div id="app">
+    <label for="target_image"> Upload Target Image</label>
+    <input type="file" id="target_image" class="file_input" name="target_image"/>
+     
+    <label for="ar_image"> Upload AR Image</label>
+    <input type="file" id="ar_image" class="file_input" name="ar_image"/>
+
+  <a class="btn-primary btn-lg" onclick="upload()" id="main-btn"> upload </a>
+  <!-- <img src="static/dims.png" style="display: block;margin-left: auto; margin-right: auto;"> -->
+</div>
+</div>
+
 
 
   <!-- JS Library Dependencies -->
-  <script src="scripts/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="scripts/semantic-ui-css/semantic.min.js"></script>
   <script src="scripts/axios/dist/axios.min.js"></script>
   <script src="scripts/handlebars/dist/handlebars.min.js"></script>
   <script src="scripts/vanilla-router/dist/vanilla-router.min.js"></script>
   <script src="js/app.js"></script>
+ 
 </body>
 
 </html>
