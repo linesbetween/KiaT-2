@@ -9,6 +9,8 @@ const uploadFile = (targetImage, arImage) => {
     const API_ENDPOINT = "https://console.echoAR.xyz/upload";
     const request = new XMLHttpRequest();
     const formData = new FormData();
+    alert("Your message is saved on EchoAR cloud!");
+
     
     var newMessage;
 
