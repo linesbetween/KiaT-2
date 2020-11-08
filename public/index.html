@@ -14,25 +14,30 @@
     <!-- Navigation Menu -->
     <div class="ui four item inverted orange menu">
       <div class="header item">
-        <i class="money bill alternate outline icon"></i>
         Home
       </div>
       <a class="item" href="/">
-        Currency Rates
+        Expolor
       </a>
       <a class="item" href="/exchange">
-        Exchange Rates
+        Upload
       </a>
       <a class="item" href="/historical">
-        Historical Rates
+        About Us
       </a>
 
     </div>
 
     <!-- Application Root -->
     <div id="app">
+        <label for="target_image"> Upload Target Image</label>
+        <input type="file" id="target_image" class="file_input" name="target_image"/>
+         
+        <label for="ar_image"> Upload AR Image</label>
+        <input type="file" id="ar_image" class="file_input" name="ar_image"/>
+
       <a class="btn-primary btn-lg" onclick="upload()" id="main-btn"> upload </a>
-      <img src="static/dims.png" style="display: block;margin-left: auto; margin-right: auto;">
+      <!-- <img src="static/dims.png" style="display: block;margin-left: auto; margin-right: auto;"> -->
     </div>
   </div>
 
@@ -45,7 +50,7 @@
 
   <!-- JS Library Dependencies -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-  <script src="scripts/jquery/dist/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="scripts/semantic-ui-css/semantic.min.js"></script>
   <script src="scripts/axios/dist/axios.min.js"></script>
   <script src="scripts/handlebars/dist/handlebars.min.js"></script>
