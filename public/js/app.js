@@ -1,4 +1,3 @@
-
 function upload() {
     var targetImage = document.querySelector("#target_image").files[0];
     var arImage = document.querySelector("#ar_image").files[0];
